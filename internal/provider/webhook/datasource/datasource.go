@@ -65,7 +65,7 @@ func (d *webhookDataSource) Read(ctx context.Context, req datasource.ReadRequest
 	var whk webhooks.Webhook
 
 	err := common.Get(func() (*http.Response, error) {
-		return d.client.RetrieveWebhook(ctx, d.ownerID)
+		return d.client.RetrieveWebhook(ctx, plan.Id.ValueString())
 	}, &whk)
 	if err != nil {
 		resp.Diagnostics.AddError("unable to get webhook", err.Error())
