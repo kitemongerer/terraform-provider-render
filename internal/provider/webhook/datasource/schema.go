@@ -4,10 +4,7 @@ import (
 	"context"
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
-	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-
-	"terraform-provider-render/internal/provider/common/validators"
 )
 
 func Schema(ctx context.Context) schema.Schema {
@@ -20,7 +17,6 @@ func Schema(ctx context.Context) schema.Schema {
 			"name": schema.StringAttribute{
 				Computed:    true,
 				Description: "Name of the webhook",
-				Validators:  []validator.String{validators.StringNotEmpty},
 			},
 			"enabled": schema.BoolAttribute{
 				Computed:    true,
